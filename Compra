@@ -1,0 +1,21 @@
+@startuml
+title Diagrama de Secuencia 1: Compra del Jabón Honeymoon
+
+actor Cliente
+participant "Página Web" as Web
+participant "Módulo de Pago" as Pago
+participant "Base de Datos" as BD
+participant "Sistema de Correo" as Correo
+
+Cliente -> Web: Iniciar sesión / Acceder al catálogo
+Web -> BD: Consultar lista de productos
+BD --> Web: Lista de jabones disponibles
+Cliente -> Web: Seleccionar jabón Honeymoon
+Web -> BD: Verificar existencias
+BD --> Web: Confirmar disponibilidad
+Cliente -> Pago: Ingresar datos de pago
+Pago -> BD: Registrar transacción
+Pago --> Web: Confirmar pago
+Web -> Correo: Enviar correo de confirmación
+Correo --> Cliente: Recibe comprobante de compra
+@enduml
