@@ -1,0 +1,16 @@
+@startuml
+title Diagrama de Secuencia 3: Control de Calidad del Jabón Honeymoon
+
+actor "Empleado de producción" as Emp
+participant "Sistema de Calidad" as Calidad
+participant "Base de Datos" as BD
+participant "Administrador" as Admin
+
+Emp -> Calidad: Registrar prueba de pH
+Calidad -> BD: Guardar resultados
+Emp -> Calidad: Registrar textura y aroma
+Calidad -> BD: Guardar valores del lote
+Emp -> Admin: Enviar resultados de control
+Admin -> Calidad: Revisar y aprobar lote
+Calidad -> BD: Actualizar estado del lote
+@enduml
