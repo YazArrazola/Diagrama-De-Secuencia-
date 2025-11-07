@@ -1,0 +1,17 @@
+@startuml
+title Diagrama de Secuencia 2: Gestión de Inventario
+
+actor Administrador
+participant "Sistema de Inventario" as Inv
+participant "Base de Datos" as BD
+participant "Proveedor" as Prov
+
+Administrador -> Inv: Registrar nuevo lote
+Inv -> BD: Guardar datos del lote
+Administrador -> Inv: Consultar existencias actuales
+Inv -> BD: Obtener datos de stock
+BD --> Inv: Devuelve cantidad actual
+Inv -> Administrador: Mostrar niveles de stock
+Inv -> Prov: Enviar notificación de insumo faltante
+Prov --> Inv: Confirmar envío de insumos
+@enduml
