@@ -1,0 +1,16 @@
+@startuml
+title Diagrama de Secuencia 4: Atención al Cliente
+
+actor Cliente
+participant "Portal de Soporte" as Soporte
+participant "Base de Datos" as BD
+participant "Agente de Soporte" as Agente
+
+Cliente -> Soporte: Enviar duda o queja
+Soporte -> BD: Registrar solicitud
+Soporte -> Agente: Notificar nueva solicitud
+Agente -> BD: Consultar información del cliente
+BD --> Agente: Devuelve historial
+Agente -> Cliente: Responder solicitud
+Cliente -> Soporte: Confirmar resolución
+@enduml
